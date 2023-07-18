@@ -1,39 +1,26 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p3;
 
-import p1.MatriculaCampamento;
-import p1.MatriculaColegio;
-import p1.MatriculaEscuela;
-import p1.MatriculaJardin;
-import p1.MatriculaMaternal;
+import p1.*;
 import p2.TipoMatricula;
 
-/**
- *
- * @author reroes
- */
+import java.util.ArrayList;
+
 public class Principal {
     public static void main(String[] args) {
-        TipoMatricula tipos = new TipoMatricula();
-        
-        MatriculaCampamento mcamp = new MatriculaCampamento();
-        mcamp.establecerTarifa();
-        
-        MatriculaColegio mcolegio = new MatriculaColegio();
-        mcolegio.establecerTarifa();
-        
-        MatriculaEscuela mescuela = new MatriculaEscuela();
-        MatriculaJardin mjardin = new MatriculaJardin();
-        MatriculaMaternal mmaternal = new MatriculaMaternal();
-        MatriculaMaternal mmaternal2 = new MatriculaMaternal();
-        
-        tipos.establecerMatriculaCampamento(mcamp);
-        tipos.establecerMatriculaColegio(mcolegio);
-        tipos.establecerPromedioTarifas();
-        System.out.printf("%s\n", tipos);
+        ArrayList<Matricula> list = new ArrayList<>();
+        list.add(new MatriculaCampamento(102,30.2,90.2));
+        list.add(new MatriculaColegio(150.2,140.2,240.2,300.4));
+        list.add( new MatriculaEscuela(50.2,40.2,140.2,200.4));
+        list.add (new MatriculaJardin(50.2,140.2,40));
+        list.add(new MatriculaMaternal(50.2,40.2,80.2));
+        list.add(new MatriculaMaternal(50.2,40.2,80.2));
+
+        for (Matricula matricula: list){
+            matricula.establecerTarifa();
+        }
+
+        TipoMatricula tipoMatricula = new TipoMatricula(list);
+        tipoMatricula.establecerPromedioTarifas();
+        System.out.println(tipoMatricula);
     }
 }

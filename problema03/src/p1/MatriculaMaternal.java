@@ -1,24 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p1;
 
-/**
- *
- * @author reroes
- */
-public class MatriculaMaternal {
-    private double tarifa;
-    
-        
-    public void establecerTarifa(){
-        // tarifa = costo desayunos + costo almuerzo + costo medico
-        tarifa = 50.2 + 40.2 + 80.2;
+public class MatriculaMaternal extends Matricula{
+    private double costoDesayunos;
+    private double costoAlmuerzo;
+    private double costoMedico;
+
+    public MatriculaMaternal(double costoDesayunos, double costoAlmuerzo, double costoMedico) {
+        this.costoDesayunos = costoDesayunos;
+        this.costoAlmuerzo = costoAlmuerzo;
+        this.costoMedico = costoMedico;
     }
-        
-    public double obtenerTarifa(){
-        return tarifa;
+
+    public double getCostoDesayunos() {
+        return costoDesayunos;
+    }
+
+    public void setCostoDesayunos(double costoDesayunos) {
+        this.costoDesayunos = costoDesayunos;
+    }
+
+    public double getCostoAlmuerzo() {
+        return costoAlmuerzo;
+    }
+
+    public void setCostoAlmuerzo(double costoAlmuerzo) {
+        this.costoAlmuerzo = costoAlmuerzo;
+    }
+
+    public double getCostoMedico() {
+        return costoMedico;
+    }
+
+    public void setCostoMedico(double costoMedico) {
+        this.costoMedico = costoMedico;
+    }
+
+    @Override
+    public void establecerTarifa() {
+    this.tarifa = this.costoDesayunos + this.costoAlmuerzo + this.costoMedico;
+    }
+
+    @Override
+    public String toString() {
+        return "MatriculaMaternal{" +
+                "tarifa=" + tarifa +
+                ", costoDesayunos=" + costoDesayunos +
+                ", costoAlmuerzo=" + costoAlmuerzo +
+                ", costoMedico=" + costoMedico +
+                '}';
     }
 }

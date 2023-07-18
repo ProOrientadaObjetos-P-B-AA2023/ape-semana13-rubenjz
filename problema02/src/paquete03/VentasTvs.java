@@ -1,47 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package paquete03;
 
 import java.util.ArrayList;
 import paquete01.Televisor;
 
-/**
- *
- * @author reroes
- */
 public class VentasTvs {
-    double precioTotal;
-    ArrayList<Televisor> televisores;
-    String marcasVendidas;
-    
-    public void establecerTelevisores(ArrayList<Televisor> t){
-        televisores = t;
+    private ArrayList<Televisor> televisores;
+    private String marcasVendidas;
+    private double precioTotal;
+    private String televisorMasCaro;
+    private ICalculosTV calculosTV;
+
+    public VentasTvs(ArrayList<Televisor> televisores) {
+        this.televisores = televisores;
     }
-    
-    public ArrayList<Televisor> obtenerTelevisores(){
-        return televisores;
+
+    public void calcularPrecioTotal(){
+        this.precioTotal = calculosTV.calcularPrecioTotal(televisores);
     }
-    
-    public void establecerPrecioTotal(){
-        double s = 0;
-        for (int i = 0; i < televisores.size(); i++) {
-            s = s + televisores.get(i).obtenerPrecio();
-            
-        }
-        precioTotal = s;
-        
+
+    public void listaMarcasVendidas() {
+        this.marcasVendidas = calculosTV.listaMarcasVendidas(televisores);
     }
-    
-    public double obtenerPrecioTotal(){
-        return precioTotal;
+
+    public void televisorMasCaro() {
+        this.televisorMasCaro = calculosTV.televisorMasCaro(televisores);
     }
-    
-        
-    public String obtenerMarcasVendidas(){
-        return marcasVendidas;
+
+    @Override
+    public String toString() {
+        return "VentasTvs{" +
+                "televisores=" + televisores +
+                ", marcasVendidas='" + marcasVendidas + '\'' +
+                ", precioTotal=" + precioTotal +
+                ", televisorMasCaro='" + televisorMasCaro + '\'' +
+                '}';
     }
-    
 }

@@ -1,23 +1,52 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p1;
 
-/**
- *
- * @author reroes
- */
-public class MatriculaCampamento {
-    private double tarifa;
-    
-    public void establecerTarifa(){
-        // tarifa = costo transporte + costo comida + costo instructores
-        tarifa = 100.2 + 30.2 + 90.2;
+public class MatriculaCampamento extends Matricula{
+    private double costoTransporte;
+    private double costoComida;
+    private double costoInstructores;
+
+    public MatriculaCampamento(double costoTransporte, double costoComida, double costoInstructores) {
+        this.costoTransporte = costoTransporte;
+        this.costoComida = costoComida;
+        this.costoInstructores = costoInstructores;
     }
-        
-    public double obtenerTarifa(){
-        return tarifa;
+
+    public double getCostoTransporte() {
+        return costoTransporte;
+    }
+
+    public void setCostoTransporte(double costoTransporte) {
+        this.costoTransporte = costoTransporte;
+    }
+
+    public double getCostoComida() {
+        return costoComida;
+    }
+
+    public void setCostoComida(double costoComida) {
+        this.costoComida = costoComida;
+    }
+
+    public double getCostoInstructores() {
+        return costoInstructores;
+    }
+
+    public void setCostoInstructores(double costoInstructores) {
+        this.costoInstructores = costoInstructores;
+    }
+
+    @Override
+    public void establecerTarifa() {
+        this.tarifa = this.costoTransporte + this.costoComida + this.costoInstructores;
+    }
+
+    @Override
+    public String toString() {
+        return "MatriculaCampamento{" +
+                "tarifa=" + tarifa +
+                ", costoTransporte=" + costoTransporte +
+                ", costoComida=" + costoComida +
+                ", costoInstructores=" + costoInstructores +
+                '}';
     }
 }

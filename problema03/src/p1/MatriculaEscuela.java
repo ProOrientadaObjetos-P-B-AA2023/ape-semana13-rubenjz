@@ -1,24 +1,63 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package p1;
 
-/**
- *
- * @author reroes
- */
-public class MatriculaEscuela {
-    private double tarifa;
-    
-    public void establecerTarifa(){
-        // tarifa = costo libros + costo deportes + costo folletos + 
-        //          costo uniformes
-        tarifa = 50.2 + 40.2 + 140.2 + 200.4;
+public class MatriculaEscuela extends Matricula {
+    private double costoLibros;
+    private double costoDeportes;
+    private double costoFolletos;
+    private double costoUniformes;
+
+    public MatriculaEscuela(double costoLibros, double costoDeportes, double costoFolletos, double costoUniformes) {
+        this.costoLibros = costoLibros;
+        this.costoDeportes = costoDeportes;
+        this.costoFolletos = costoFolletos;
+        this.costoUniformes = costoUniformes;
     }
-        
-    public double obtenerTarifa(){
-        return tarifa;
+
+    public double getCostoLibros() {
+        return costoLibros;
+    }
+
+    public void setCostoLibros(double costoLibros) {
+        this.costoLibros = costoLibros;
+    }
+
+    public double getCostoDeportes() {
+        return costoDeportes;
+    }
+
+    public void setCostoDeportes(double costoDeportes) {
+        this.costoDeportes = costoDeportes;
+    }
+
+    public double getCostoFolletos() {
+        return costoFolletos;
+    }
+
+    public void setCostoFolletos(double costoFolletos) {
+        this.costoFolletos = costoFolletos;
+    }
+
+    public double getCostoUniformes() {
+        return costoUniformes;
+    }
+
+    public void setCostoUniformes(double costoUniformes) {
+        this.costoUniformes = costoUniformes;
+    }
+
+    @Override
+    public void establecerTarifa() {
+        this.tarifa = this.costoLibros + this.costoDeportes + this.costoFolletos + this.costoUniformes;
+    }
+
+    @Override
+    public String toString() {
+        return "MatriculaEscuela{" +
+                "tarifa=" + tarifa +
+                ", costoLibros=" + costoLibros +
+                ", costoDeportes=" + costoDeportes +
+                ", costoFolletos=" + costoFolletos +
+                ", costoUniformes=" + costoUniformes +
+                '}';
     }
 }

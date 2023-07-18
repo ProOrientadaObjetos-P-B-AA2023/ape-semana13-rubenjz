@@ -3,16 +3,13 @@ package paquete005;
 import paquete001.Persona;
 import paquete002.*;
 import paquete003.BilleteraPagos;
-import paquete004.PagoAguaPotable;
-import paquete004.PagoLuzElectrica;
-import paquete004.PagoPredial;
-import paquete004.PagoTelefonoConvencional;
+import paquete004.*;
 
 import java.util.ArrayList;
 
 public class Principal {
     public static void main(String[] args) {
-        ArrayList list = new ArrayList<>();
+        ArrayList<Pagos> list = new ArrayList<>();
 
         Casa casa = new Casa();
         Comercio comercio = new Comercio();
@@ -24,32 +21,18 @@ public class Principal {
 
         //Pagos
         Persona persona = new Persona("Pato","Paton",18,"1105784218",ciudad1);
-        PagoAguaPotable aguaCasa = new PagoAguaPotable(2.20,100.2,0.2,casa);
-        PagoAguaPotable aguaComercio = new PagoAguaPotable(2.20,100.2,0.2,comercio);
-        PagoLuzElectrica luzCasa = new PagoLuzElectrica(10.20,80,0.5,iCiudad);
-        PagoLuzElectrica luzComercio = new PagoLuzElectrica(10.20,80,0.5,iCiudad1);
-        PagoPredial casa1 = new PagoPredial(propiedad,10);
-        PagoPredial casa2 = new PagoPredial(propiedad1,10);
-        PagoTelefonoConvencional telefonoCasa = new PagoTelefonoConvencional(6.20, 100,0.2);
-        PagoTelefonoConvencional telefonoFinca = new PagoTelefonoConvencional(6.20, 100,0.2);
+        list.add(new PagoAguaPotable(2.20,100.2,0.2,casa));
+        list.add(new PagoAguaPotable(2.20,100.2,0.2,comercio));
+        list.add(new PagoLuzElectrica(10.20,80,0.5,iCiudad));
+        list.add(new PagoLuzElectrica(10.20,80,0.5,iCiudad1));
+        list.add(new PagoPredial(propiedad,10));
+        list.add(new PagoPredial(propiedad1,10));
+        list.add(new PagoTelefonoConvencional(6.20, 100,0.2));
+        list.add(new PagoTelefonoConvencional(6.20, 100,0.2));
 
-        aguaCasa.calcularPago();
-        aguaComercio.calcularPago();
-        luzCasa.calcularPago();
-        luzComercio.calcularPago();
-        casa1.calcularPago();
-        casa2.calcularPago();
-        telefonoCasa.calcularPago();
-        telefonoFinca.calcularPago();
-
-        list.add(aguaCasa);
-        list.add(aguaComercio);
-        list.add(luzCasa);
-        list.add(luzComercio);
-        list.add(casa1);
-        list.add(casa2);
-        list.add(telefonoCasa);
-        list.add(telefonoFinca);
+        for (Pagos pagos: list){
+            pagos.calcularPago();
+        }
 
         BilleteraPagos pago = new BilleteraPagos("12",persona,list);
         pago.calcularSubtotal();
