@@ -38,7 +38,7 @@ public class PagoTelefonoConvencional extends Pagos {
     }
 
     @Override
-    protected void calcularPago() {
+    public void calcularPago() {
         this.pago = this.tarifa + (this.minutosConsumidos * this.costoMinuto);
     }
 

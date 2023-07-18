@@ -40,7 +40,7 @@ public class PagoLuzElectrica extends Pagos{
     }
 
     @Override
-    protected void calcularPago() {
+    public void calcularPago() {
         this.pago = ciudad.pagoCiudad(this.tarifaBase, this.kilovatiosConsumidos, this.costoKilovatio);
     }
 

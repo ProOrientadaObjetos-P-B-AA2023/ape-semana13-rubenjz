@@ -29,7 +29,7 @@ public class PagoPredial extends Pagos {
     }
 
     @Override
-    protected void calcularPago() {
+    public void calcularPago() {
         this.pago = propiedad.getCostoPropiedad() - ((propiedad.getCostoPropiedad() * this.porcentaje)/100);
     }
 

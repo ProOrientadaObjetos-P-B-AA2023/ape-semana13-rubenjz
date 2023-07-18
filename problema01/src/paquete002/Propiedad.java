@@ -15,4 +15,11 @@ public abstract class Propiedad {
     }
 
     public abstract double costoPagoAgua(double tarifaFija, double metrosCubicosConsumo, double costoConsumoCubicos);
+
+    @Override
+    public String toString() {
+        return "Propiedad{" +
+                "costoPropiedad=" + costoPropiedad +
+                '}';
+    }
 }

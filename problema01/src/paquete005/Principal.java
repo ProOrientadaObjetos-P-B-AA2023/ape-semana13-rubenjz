@@ -17,7 +17,7 @@ public class Principal {
         Casa casa = new Casa();
         Comercio comercio = new Comercio();
         ICiudad iCiudad = new Ciudad_Loja();
-        ICiudad iCiudad1 = new Ciudad_Loja();
+        ICiudad iCiudad1 = new Ciudad_x();
         Ciudad ciudad1 = new Ciudad("Loja");
         Propiedad propiedad = new Casa(56000);
         Propiedad propiedad1 = new Casa(56000);
@@ -33,6 +33,15 @@ public class Principal {
         PagoTelefonoConvencional telefonoCasa = new PagoTelefonoConvencional(6.20, 100,0.2);
         PagoTelefonoConvencional telefonoFinca = new PagoTelefonoConvencional(6.20, 100,0.2);
 
+        aguaCasa.calcularPago();
+        aguaComercio.calcularPago();
+        luzCasa.calcularPago();
+        luzComercio.calcularPago();
+        casa1.calcularPago();
+        casa2.calcularPago();
+        telefonoCasa.calcularPago();
+        telefonoFinca.calcularPago();
+
         list.add(aguaCasa);
         list.add(aguaComercio);
         list.add(luzCasa);
@@ -43,6 +52,8 @@ public class Principal {
         list.add(telefonoFinca);
 
         BilleteraPagos pago = new BilleteraPagos("12",persona,list);
+        pago.calcularSubtotal();
+
         System.out.println(pago);
     }
 }

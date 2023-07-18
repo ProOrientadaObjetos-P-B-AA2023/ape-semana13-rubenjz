@@ -40,7 +40,7 @@ public class PagoAguaPotable extends Pagos{
     }
 
     @Override
-    protected void calcularPago() {
+    public void calcularPago() {
         this.pago = propiedad.costoPagoAgua(this.tarifaFija, this.metrosCubicosConsumo, this.costoConsumoCubicos);
     }
 
